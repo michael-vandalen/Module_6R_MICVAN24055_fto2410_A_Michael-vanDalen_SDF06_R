@@ -1,23 +1,85 @@
 /* Base Styles */
 
 :root {
-    font-size: 10px;
+  font-size: 10px;
 }
 
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: "Open Sans", Arial, sans-serif;
-    min-height: 100vh;
-    background-color: #fafafa;
-    color: #262626;
-    padding-bottom: 3rem;
+  font-family: "Open Sans", Arial, sans-serif;
+  min-height: 100vh;
+  background-color: #fafafa;
+  color: #262626;
+  padding-bottom: 3rem;
 }
 
 img {
-    display: block;
+  display: block;
+}
+
+/*Styling*/
+.profile-image {
+  padding-left: 20px;
+}
+
+.profile-image img {
+  border-radius: 100%;
+  border: 10px solid rgba(46, 139, 86, 0.795);
+}
+
+.profile-info .profile-user-settings .profile-user-name {
+  font-weight: lighter;
+  padding-right: 10px;
+  font-size: 30px;
+}
+
+.btn {
+  height: fit-content;
+}
+
+.btn .profile-settings-btn i {
+  font-size: 15px;
+}
+
+.profile-stats ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 40px;
+}
+
+.profile-stats ul li {
+  font-size: 15px;
+}
+
+.profile-stat-count {
+  font-weight: bold;
+}
+
+/*Layout*/
+.profile {
+  display: flex;
+}
+
+.profile .profile-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 2;
+  margin-left: 10px;
+}
+
+.profile .profile-info .profile-user-settings {
+  display: flex;
+  align-items: center;
+}
+
+.profile .profile-info .profile-stats ul {
+  display: flex;
+  gap: 15px;
 }
