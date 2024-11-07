@@ -23,23 +23,22 @@ img {
 }
 
 /*Styling*/
-.profile-image {
-  padding-left: 20px;
-}
 
 .profile-image img {
   border-radius: 100%;
-  border: 10px solid rgba(46, 139, 86, 0.795);
+  border: 13px solid rgba(46, 139, 86, 0.795);
 }
 
 .profile-info .profile-user-settings .profile-user-name {
   font-weight: lighter;
   padding-right: 10px;
-  font-size: 30px;
+  font-size: 35px;
 }
 
 .btn {
   height: fit-content;
+  margin-top: 10px;
+  margin-left: 5px;
 }
 
 .btn .profile-settings-btn i {
@@ -60,9 +59,26 @@ img {
   font-weight: bold;
 }
 
+.profile-bio p {
+  font-size: 15px;
+}
+
+.gallery {
+  position: relative;
+}
+
+.gallery-item-info ul {
+  list-style-type: none;
+}
+
 /*Layout*/
 .profile {
   display: flex;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  margin-right: 120px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .profile .profile-info {
@@ -77,9 +93,42 @@ img {
 .profile .profile-info .profile-user-settings {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
 }
 
 .profile .profile-info .profile-stats ul {
   display: flex;
   gap: 15px;
+}
+
+.gallery {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, 18%);
+  grid-template-rows: 550px repeat(3, 410px);
+  justify-content: center;
+}
+
+@media (max-width: 990px) {
+  .gallery {
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: auto;
+  }
+
+  .profile {
+    margin-right: 0;
+  }
+}
+
+.gallery .gallery-item .gallery-image {
+  width: 95%;
+  height: 95%;
+  object-fit: cover;
+  position: relative;
+}
+
+.gallery-item-info ul {
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
