@@ -41,14 +41,14 @@ img {
   margin-left: 5px;
 }
 
-.btn .profile-settings-btn i {
-  font-size: 15px;
+.profile-settings-btn {
+  transform: scale(1.4);
+  margin-bottom: 5px;
+  margin-left: 15px;
 }
 
 .profile-stats ul {
   list-style: none;
-  padding: 0;
-  margin-bottom: 40px;
 }
 
 .profile-stats ul li {
@@ -69,6 +69,17 @@ img {
 
 .gallery-item-info ul {
   list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.gallery-item-info li {
+  margin: 5px 0;
+}
+
+.gallery-item-likes i,
+.gallery-item-comments i {
+  margin-right: 5px;
 }
 
 /*Layout*/
@@ -86,19 +97,25 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  line-height: 2;
+  line-height: 3;
   margin-left: 10px;
 }
 
 .profile .profile-info .profile-user-settings {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  margin-right: 25px;
 }
 
-.profile .profile-info .profile-stats ul {
+.profile-stats ul {
   display: flex;
-  gap: 15px;
+  gap: 45px;
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+.profile-bio {
+  margin-top: 10px;
 }
 
 .gallery {
@@ -109,7 +126,7 @@ img {
   justify-content: center;
 }
 
-@media (max-width: 990px) {
+@media (max-width: 1110px) {
   .gallery {
     grid-template-columns: repeat(2, auto);
     grid-template-rows: auto;
@@ -120,15 +137,54 @@ img {
   }
 }
 
-.gallery .gallery-item .gallery-image {
-  width: 95%;
-  height: 95%;
-  object-fit: cover;
+.gallery-item {
   position: relative;
+  cursor: pointer;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  padding: 10px;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .gallery-item-info ul {
   display: flex;
-  justify-content: center;
-  align-content: center;
+}
+
+.gallery-item:hover .gallery-item-info,
+.gallery-item:focus-within .gallery-item-info {
+  opacity: 1;
+  visibility: visible;
+}
+
+.gallery-item-type {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.gallery-item-likes span,
+.gallery-item-comments span {
+  visibility: hidden;
 }
