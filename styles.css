@@ -23,13 +23,25 @@ img {
 }
 
 /*Styling*/
+.profile {
+  margin: 40px 120px 40px 0;
+}
 
 .profile-image img {
   border-radius: 100%;
   border: 13px solid rgba(46, 139, 86, 0.795);
 }
 
-.profile-info .profile-user-settings .profile-user-name {
+.profile-info {
+  margin-left: 10px;
+  line-height: 3;
+}
+
+.profile-user-settings {
+  margin-right: 25px;
+}
+
+.profile-user-name {
   font-weight: lighter;
   padding-right: 10px;
   font-size: 35px;
@@ -39,6 +51,7 @@ img {
   height: fit-content;
   margin-top: 10px;
   margin-left: 5px;
+  cursor: pointer;
 }
 
 .profile-settings-btn {
@@ -49,6 +62,9 @@ img {
 
 .profile-stats ul {
   list-style: none;
+  gap: 45px;
+  margin-bottom: 20px;
+  padding: 0;
 }
 
 .profile-stats ul li {
@@ -59,7 +75,8 @@ img {
   font-weight: bold;
 }
 
-.profile-bio p {
+.profile-bio {
+  margin-top: 10px;
   font-size: 15px;
 }
 
@@ -71,6 +88,7 @@ img {
   list-style-type: none;
   padding: 0;
   margin: 0;
+  margin-right: 20px;
 }
 
 .gallery-item-info li {
@@ -82,40 +100,62 @@ img {
   margin-right: 5px;
 }
 
+.gallery-item-type {
+  transform: scale(1.5);
+  margin-top: 10px;
+  margin-right: 15px;
+}
+.gallery-item-comments li {
+  margin-right: 10px;
+}
+
+.gallery-item-likes,
+.gallery-item-comments {
+  transform: scale(1.5);
+}
+
+.gallery-item-comments span {
+  font-size: 5px;
+}
+
+.loader {
+  margin-top: 20px;
+}
+
+.loader::after {
+  border: 7px solid transparent;
+  border-top-color: #009579;
+  border-bottom-color: #009579;
+  border-left-color: #009579;
+  border-radius: 50%;
+  animation: loading 1s linear infinite;
+}
+
+@keyframes loading {
+  to {
+    transform: rotate(1turn);
+  }
+}
 /*Layout*/
 .profile {
   display: flex;
-  margin-bottom: 40px;
-  margin-top: 40px;
-  margin-right: 120px;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.profile .profile-info {
+.profile-info {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  line-height: 3;
-  margin-left: 10px;
 }
 
-.profile .profile-info .profile-user-settings {
+.profile-user-settings {
   display: flex;
   align-items: center;
-  margin-right: 25px;
 }
 
 .profile-stats ul {
   display: flex;
-  gap: 45px;
-  margin-bottom: 20px;
-  padding: 0;
-}
-
-.profile-bio {
-  margin-top: 10px;
 }
 
 .gallery {
@@ -124,16 +164,54 @@ img {
   grid-template-columns: repeat(3, 18%);
   grid-template-rows: 550px repeat(3, 410px);
   justify-content: center;
+  position: relative;
 }
 
-@media (max-width: 1110px) {
+/*Layout for Large Laptops*/
+@media (max-width: 1440px) {
   .gallery {
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(3, 25%);
     grid-template-rows: auto;
   }
 
   .profile {
     margin-right: 0;
+  }
+}
+
+/*Layout for Tablets*/
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(6, auto);
+  }
+
+  .profile {
+    margin-right: 0;
+  }
+}
+
+/*Layout for Mobile*/
+@media (max-width: 425px) {
+  .gallery {
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+  }
+  .profile {
+    margin-right: 0;
+  }
+  .profile-user-name {
+    font-size: 24px;
+  }
+  .profile-settings-btn {
+    transform: scale(1.2);
+    margin-bottom: 2.5px;
+  }
+  .profile-bio {
+    font-size: 12px;
+  }
+  .loader {
+    bottom: 0;
   }
 }
 
@@ -185,6 +263,18 @@ img {
 }
 
 .gallery-item-likes span,
-.gallery-item-comments span {
+.gallery-item-comments span,
+.gallery-item-type span {
   visibility: hidden;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+}
+
+.loader::after {
+  content: "";
+  width: 50px;
+  height: 50px;
 }
